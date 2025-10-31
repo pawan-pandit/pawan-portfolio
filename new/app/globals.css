@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+
+
+
+@font-face {
+  font-family: 'cormor';
+  src: url('/fonts/Cormorant-Regular.ttf') format('truetype');
+
+}
+.cormor {
+  font-family: 'cormor', cursive;
+}
+
+
+
+@font-face {
+  font-family: 'roboto';
+  src: url('/fonts/RobotoSlab-Regular.ttf') format('truetype');
+
+}
+.roboto {
+  font-family: 'roboto', cursive;
+}
