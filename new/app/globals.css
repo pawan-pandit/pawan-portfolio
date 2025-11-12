@@ -22,3 +22,71 @@
 .roboto {
   font-family: 'roboto', cursive;
 }
+
+
+
+/* Add wavy animation for navbar characters */
+@keyframes wave-char {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+
+
+.wavy-phrase-container {
+  display: flex;
+  gap: 2px;
+   position: relative;
+  cursor: pointer;
+}
+
+.wavy-phrase p {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: inline-block;
+}
+
+.wavy-phrase-container:hover p  {
+  animation: wave-char 0.6s ease-in-out;
+  animation-delay: calc(var(--char-index, 0) * 0.1s);
+  color: #ebeb61;
+}
+.wavy-phrase-container p,
+.wavy-phrase-container .icon-motion {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.group:hover .wavy-phrase-container p,
+.group:hover .wavy-phrase-container .icon-motion {
+  transform: translateY(-3px);
+ color: #ebeb61;
+ 
+}
+
+.wavy-phrase-container::after {
+  content: "";
+  position: absolute;
+  bottom: -3px; 
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #ebeb61;
+  transition: width 0.4s ease-in-out;
+}
+
+.group:hover .wavy-phrase-container::after {
+  width: 100%;
+}
+
+
+
+
+
