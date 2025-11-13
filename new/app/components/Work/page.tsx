@@ -23,15 +23,15 @@ const WorkSection: React.FC<WorkSectionProps> = ({
   projects = [
     {
       id: "1",
-      title: "MAD's Portfolio",
-      category: "Development",
-      client: "Mirror Progress",
+      title: "10X Growth Club — Landing Page for Vivek Shekhawat",
+      category: "Web Development",
+      client: "Vivek Shekhawat",
       year: "2025",
       description:
-        "Developed a bilingual website (English and Chinese) for MAD Architects, a renowned Chinese architecture firm known for its futuristic and organic designs. As part of agency Mirror Progress, delivered full-stack development to create a seamless, modern experience that showcases the studio's international portfolio while ensuring accessibility across languages and regions.",
-      link: "https://www.i-mad.com",
-      tags: ["Development", "Creative Dev", "Fullstack"],
-      images: ["/portfolio-1.jpg", "/portfolio-2.jpg"],
+"Developed a clean, content-focused landing page for Vivek Shekhawat, based on Figma designs inspired by the 10X Growth Club brand. The client requested a minimal, motion-free experience focused purely on clarity and messaging. I handled the complete frontend development using Next.js, ensuring pixel-perfect implementation, responsive layout, and fast performance. The result is a professional, conversion-oriented page that communicates authority and trust through simplicity and structured content.",
+      link: "https://10xgrowth.club",
+      tags: ["Next.js", "Landing Page", "UI/UX", "Responsive Design"],
+      images: ["/10xgrowth1.png", "/10xgrowth2.png"],
     },
     {
       id: "2",
@@ -46,7 +46,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
       images: ["/portfolio-3.jpg", "/portfolio-4.jpg"],
     },
 
-     {
+    {
       id: "3",
       title: "Creative Agency Site",
       category: "Design",
@@ -58,7 +58,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
       tags: ["Design", "Frontend", "Responsive"],
       images: ["/portfolio-3.jpg", "/portfolio-4.jpg"],
     },
-     {
+    {
       id: "4",
       title: "Creative Agency Site",
       category: "Design",
@@ -124,7 +124,18 @@ const WorkSection: React.FC<WorkSectionProps> = ({
 
   return (
     <div className="bg-[#191919] text-white py-10 md:py-20">
-      {/* Header Row - Hidden on mobile, show only Project and Year on md+ */}
+
+      <div className="text-center mb-10 md:mb-16 px-4">
+        <h1 className="text-3xl md:text-5xl font-bold uppercase tracking-wide mb-4">
+          My Work & Contributions
+        </h1>
+        <p className="text-sm md:text-base lg:text-lg xl:text-xl  text-gray-300 max-w-4xl mx-auto leading-relaxed tracking-wider">
+          A showcase of selected projects that highlight my experience as a creative developer and designer.
+          From crafting clean, performant user interfaces to managing full-stack architecture,
+          I’ve contributed to every stage — from concept and design to deployment and optimization.
+          Each project reflects my focus on detail, usability, and innovation.
+        </p>
+      </div>
       <div className="hidden md:flex uppercase justify-between px-6 py-4 text-sm font-semibold tracking-wider text-white/80">
         <p className="flex-1">Project</p>
         <p className="flex-1">Category</p>

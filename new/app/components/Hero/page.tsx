@@ -38,79 +38,58 @@ export default function Home() {
 
 
 
-  const textDivRef = useRef<HTMLDivElement>(null)
-  const [textHeight, setTextHeight] = useState(0)
+  const firstText = useRef(null);
+  const secondText = useRef(null);
+  const slider = useRef(null);
+  let xPercent = 0;
+  let direction = -1;
 
-  const firstText = useRef<HTMLParagraphElement>(null)
-  const secondText = useRef<HTMLParagraphElement>(null)
-  const slider = useRef<HTMLDivElement>(null)
-  let xPercent = 0
-  let direction = -1
-
-  useEffect(() => {
-    if (textDivRef.current) {
-      setTextHeight(textDivRef.current.offsetHeight)
-    }
-    const handleResize = () => {
-      if (textDivRef.current) setTextHeight(textDivRef.current.offsetHeight)
-    }
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+  useEffect( () => {
+    gsap.registerPlugin(ScrollTrigger);
     gsap.to(slider.current, {
       scrollTrigger: {
         trigger: document.documentElement,
-        scrub: 0.25,
+        scrub: 1,
         start: 0,
         end: window.innerHeight,
-        onUpdate: (e) => (direction = e.direction * -1),
+        onUpdate: e => direction = e.direction * -1
       },
       x: "-500px",
     })
-    requestAnimationFrame(animate)
+    requestAnimationFrame(animate);
   }, [])
 
   const animate = () => {
-    if (xPercent < -100) xPercent = 0
-    else if (xPercent > 0) xPercent = -100
-    gsap.set(firstText.current, { xPercent })
-    gsap.set(secondText.current, { xPercent: xPercent + 100 })
-    requestAnimationFrame(animate)
-    xPercent += 0.1 * direction
-  }
-
-  const slideUp = {
-    initial: { y: 300 },
-    enter: {
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.33, 1, 0.68, 1] as Easing, // ✅ Cast to Easing
-        delay: 0.8,
-      },
-    },
+    if(xPercent < -100){
+      xPercent = 0;
+    }
+    else if(xPercent > 0){
+      xPercent = -100;
+    }
+    gsap.set(firstText.current, {xPercent: xPercent})
+    gsap.set(secondText.current, {xPercent: xPercent})
+    requestAnimationFrame(animate);
+    xPercent += 0.10 * direction;
   }
 
 
+ 
   return (
     <>
       <div className={`${styles.container} h-[60vh] xl:h-[70vh] `}>
-        <div className={` ${styles.body} px-4  `}>
+        <div className={` ${styles.body} px-4  text-3xl md:text-5xl font-bold`}>
           <p>  Pawan Sharma</p>
           <p>  CREATIVE DEVELOPER</p>
 
 
-          <p className="text-sm md:text-base lg:text-lg xl:text-xl text-center mt-2 md:mt-3  px-2 max-w-3xl mx-auto  tracking-wide ">
+          <p className="text-sm md:text-base lg:text-lg xl:text-xl text-center mt-2 md:mt-3  text-gray-300  max-w-3xl mx-auto  tracking-wider ">
             Freelance Full Stack Developer • Next.js • Nest.js • UI/UX Enthusiast • Learning SQL & Python | Open to
             Internships & New Opportunities
           </p>
 
           <div className="max-w-xl lg:max-w-2xl mx-auto flex p-4 gap-1  lg:gap-4">
             <Image src="/pawan1.png" alt="pawan image" width={60} height={60} className="rounded-full h-[40px] w-[40px] xl:h-[45px] xl:w-[45px]"></Image>
-            <p className="text-sm md:text-base lg:text-lg xl:text-xl text-center mb-1 md:mb-3  normal-case tracking-wide max-w-2xl">
+            <p className="text-sm md:text-base lg:text-lg xl:text-xl text-center mb-1 md:mb-3  normal-case tracking-wider max-w-2xl text-white/95">
               ❝ I build every project with the same dedication as if it were my own brand. ❞
             </p>
           </div>
@@ -127,29 +106,18 @@ export default function Home() {
         </div>
       </div>
 
-      <motion.main
-        variants={slideUp}
-        initial="initial"
-        animate="enter"
-        className="relative flex overflow-hidden h-[5vh] md:h-[20vh] text-center items-center bg-[#191919]"
+       <main className=" relative flex h-[10vh]  overflow-hidden  bg-[#191919]">
+     
+      <div className="absolute w-full overflow-hidden">
+    <div ref={slider} className="relative whitespace-nowrap">
+      <p
+        ref={firstText}
+        className="relative m-0 text-white text-[6vh]  md:text-[4vw] font-bold pr-[50px] tracking-wider "
       >
-        <div className="  w-full overflow-hidden">
-          <div ref={slider} className="relative whitespace-nowrap">
-            <p
-              ref={firstText}
-              className="inline-block m-0 text-white text-[5vw] font-bold pr-[50px]"
-            >
-              •  Freelance Developer •  Freelance Frontend Developer  •  Freelance Developer •  Freelance Frontend Developer • Web Designer • UI/UX Enthusiast
-            </p>
-            <p
-              ref={secondText}
-              className="inline-block m-0 text-white text-[5vw] font-bold pr-[50px]"
-            >
-              •  Freelance Developer •  Freelance Frontend Developer  •  Freelance Developer •  Freelance Frontend Developer • Web Designer • UI/UX Enthusiast
-            </p>
-          </div>
-        </div>
-      </motion.main>
+  •  Freelance Developer •  Freelance Frontend Developer  •  Freelance Developer •  Freelance Frontend Developer • Web Designer • UI/UX Enthusiast      </p>
+         </div>
+  </div>
+    </main>
     </>
   )
 }
