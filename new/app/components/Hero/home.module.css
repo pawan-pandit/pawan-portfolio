@@ -16,12 +16,11 @@
 
 .container .body {
   
-  text-align: center;
   width: 70%;
   position: relative;
   z-index: 1;
   pointer-events: none;
-  text-transform: uppercase;
+  
   mix-blend-mode: difference;
   color: white;
   line-height: 1.2;
