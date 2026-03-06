@@ -126,7 +126,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
     <div className="bg-[#191919] text-white py-10 md:py-20">
 
       <div className="text-center mb-10 md:mb-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold uppercase tracking-wide mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold  tracking-wide mb-4">
           My Work & Contributions
         </h1>
         <p className="text-sm md:text-base lg:text-lg xl:text-xl  text-gray-300 max-w-4xl mx-auto leading-relaxed tracking-wider">
@@ -136,40 +136,34 @@ const WorkSection: React.FC<WorkSectionProps> = ({
           Each project reflects my focus on detail, usability, and innovation.
         </p>
       </div>
-      <div className="hidden md:flex uppercase justify-between px-6 py-4 text-sm font-semibold tracking-wider text-white/80">
+      <div className="hidden md:flex uppercase justify-between px-6 py-4  text-sm lg:text-lg font-semibold tracking-wider text-white/80">
         <p className="flex-1">Project</p>
         <p className="flex-1">Category</p>
         <p className="flex-1">Client</p>
         <p className="flex-1">Year</p>
       </div>
 
-      {/* Mobile Header - Only Project and Year visible on mobile */}
       <div className="flex md:hidden uppercase justify-between px-4 py-3 text-xs font-semibold">
         <p className="flex-1">Project</p>
         <p className="flex-1 text-right">Year</p>
       </div>
 
-      {/* Divider */}
       <div className="h-px bg-gray-700 mx-4 md:mx-6"></div>
 
-      {/* Projects List */}
       <div className="divide-y divide-white mx-4 md:mx-6 roboto">
         {projects.map((project) => (
           <div key={project.id}>
-            {/* Project Header - Different layouts for mobile and desktop */}
             <button
               onClick={() => toggleExpand(project.id)}
-              className="w-full flex justify-between items-center px-4 md:px-6 py-4 md:py-5 hover:bg-white hover:text-black transition-colors text-left"
+              className="w-full flex justify-between items-center px-4 md:px-6 py-4 md:py-5  hover:bg-white hover:text-black transition-colors text-left"
             >
-              {/* Desktop Layout */}
               <div className="hidden md:flex flex-1 gap-6">
-                <p className="flex-1 text-sm">{project.title}</p>
-                <p className="flex-1 text-sm">{project.category}</p>
-                <p className="flex-1 text-sm">{project.client}</p>
-                <p className="flex-1 text-sm">{project.year}</p>
+                <p className="flex-1 text-sm lg:text-lg">{project.title}</p>
+                <p className="flex-1 text-sm lg:text-lg">{project.category}</p>
+                <p className="flex-1 text-sm lg:text-lg">{project.client}</p>
+                <p className="flex-1 text-sm lg:text-lg">{project.year}</p>
               </div>
 
-              {/* Mobile Layout */}
               <div className="flex md:hidden flex-1 justify-between items-center w-full">
                 <p className="flex-1 text-xs md:text-sm">{project.title}</p>
                 <p className="flex-1 text-right text-xs md:text-sm">{project.year}</p>
@@ -178,13 +172,10 @@ const WorkSection: React.FC<WorkSectionProps> = ({
               <div className="ml-4 text-gray-400">{expandedId === project.id ? "−" : "+"}</div>
             </button>
 
-            {/* Project Details - Expandable */}
             {expandedId === project.id && (
               <div className="px-6 py-6 bg-[#121212] border-t border-gray-700">
-                {/* Description */}
                 <p className="text-sm leading-relaxed text-gray-300 mb-6">{project.description}</p>
 
-                {/* Link */}
                 <div className="mb-6">
                   <a
                     href={project.link}
@@ -204,7 +195,6 @@ const WorkSection: React.FC<WorkSectionProps> = ({
                   </a>
                 </div>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, index) => (
                     <span key={index} className="px-3 py-1 text-xs bg-gray-800 text-gray-200 rounded-full">
@@ -213,7 +203,6 @@ const WorkSection: React.FC<WorkSectionProps> = ({
                   ))}
                 </div>
 
-                {/* Images Gallery */}
                 {project.images.length > 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project.images.map((image, index) => (

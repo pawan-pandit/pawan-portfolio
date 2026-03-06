@@ -3,22 +3,21 @@
 import { useEffect, useState } from "react"
 import { Home, Mail } from "lucide-react"
 import Link from "next/link"
+import WorkSection from "../Work/page"
+import HowIWork from "../HowIWork"
+import { FaWhatsapp } from "react-icons/fa"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
+      setScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className={`fixed top-0 left-0 z-50 w-full transition-all duration-75 ease-in-out bg-[#191919]`}>
@@ -34,7 +33,6 @@ const Navbar = () => {
             { href: "#home", label: "", icon: <Home className="w-5 h-5 md:h-7 md:w-7" /> },
             { href: "#work", label: "Work" },
             { href: "#process", label: "Process" },
-            { href: "#contact", label: "Contact" },
           ].map(({ href, label, icon }) => (
             <li key={href}>
               <Link
@@ -56,6 +54,17 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+       <div className="flex gap-6">
+         <a
+          href="https://wa.me/917357546622"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-green-400 hover:scale-110 transition"
+          aria-label="Contact via WhatsApp"
+        >
+         <FaWhatsapp className="w-5 h-5 md:w-8 md:h-8" />
+
+        </a>
 
         <a
           href="mailto:pawansharmaaddii@gmail.com"
@@ -65,6 +74,7 @@ const Navbar = () => {
 
           <span className="hidden md:inline">pawansharmaaddii@gmail.com</span>
         </a>
+       </div>
       </div>
     </nav>
   )
