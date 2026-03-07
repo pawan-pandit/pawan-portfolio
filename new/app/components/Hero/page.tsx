@@ -78,24 +78,24 @@ export default function Home() {
 
   return (
     <>
-      <div className={`${styles.container} h-[60vh] xl:h-[70vh] `}>
-
+      <div className={`${styles.container} relative       h-[70vh] xl:h-[80vh] `}>
+       <FlickeringGrid
+  className="absolute right-0 top-0 z-0 w-[70%] h-full mix-blend-hard-light mask-[radial-gradient(600px_circle_at_center,white,transparent)]"
+  squareSize={4}
+  gridGap={3}
+  color="#60A5FA"
+  maxOpacity={0.5}
+  flickerChance={0.1}
+/>
         <div className={`${styles.body} h-[60vh] xl:h-[70vh]  max-w-7xl px-6 md:px-10  lg:px-10 flex items-center gap-10 `}>
-          <FlickeringGrid
-            className="absolute  inset-0 mask-[radial-gradient(350px_circle_at_center,white,transparent)]"
-            squareSize={4}
-            gridGap={3}
-            color="#60A5FA"
-            maxOpacity={0.5}
-            flickerChance={0.1}
-          />
-          <div className="lg:max-w-2xl xl:max-w-3xl text-left lg:pt-10">
-            <p className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-sans ">Pawan Sharma</p>
-            <p className="text-3xl md:text-5xl  lg:text-6xl xl:text-7xl  font-sans mt-2">
-              Creative Developer
+
+          <div className="lg:max-w-2xl xl:max-w-4xl text-left lg:pt-10">
+            <p className="text-4xl sm:text-6xl xl:text-8xl font-normal tracking-tight leading-[1.1] mb-4 sm:mb-6 text-transparent bg-clip-text bg-linear-to-b from-white to-gray-500 font-sans ">Pawan Sharma <br />  Creative Developer
             </p>
 
-            <p className="text-xs  md:text-sm lg:text-sm xl:text-base font-extralight mt-4 text-gray-200 tracking-wider">
+
+
+            <p className="text-xs  md:text-sm lg:text-sm xl:text-lg font-thin leading-relaxed mt-4 text-gray-200 tracking-wider">
               I’m a Full-Stack Developer with 2+ year of experience building modern web
               applications using React, Next.js, and NestJS. I enjoy creating clean,
               responsive interfaces and scalable backend systems. I’ve worked on several
@@ -140,24 +140,25 @@ export default function Home() {
               </a>
             </div>
           </div>
-         
+
           {/* RIGHT SIDE IMAGE */}
-       <div className="relative hidden lg:flex 
-                w-full  lg:w-[35%] xl:w-[40%] 
+ <div className="relative hidden z-99999  lg:flex 
+                w-full  lg:w-[35%] xl:w-[30%] 
                 items-center justify-center aspect-square">
 
-  <div className="relative z-20 w-full h-full overflow-hidden">
-    <Image
-      src="/pawan1.png"
-      alt="Pawan"
-      fill
-      className="object-cover rounded-[100%_60%_40%_50%]"
-    />
-  </div>
-
-</div>
+          <div className="relative w-full h-[60vh] xl:h-[70vh]  overflow-hidden ">
+            <Image
+              src="/pawan11.png"
+              alt="Pawan"
+              fill
+              className="object-contain  grayscale rounded-full   "
+            />
+          </div>
 
         </div>
+
+        </div>
+       
         <div className={styles.grid}>
           {windowsWidth > 0 &&
             [...Array(20).keys()].map((_, index) => {
