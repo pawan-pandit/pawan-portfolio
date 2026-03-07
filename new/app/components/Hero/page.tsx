@@ -16,27 +16,27 @@ export default function Home() {
     setWindowsWidth(window.innerWidth)
   }, [])
 
-  const getBlocks = () => {
-    const blockSize = windowsWidth * 0.05
-    const nbOfBlocks = Math.ceil(window.innerHeight / blockSize)
-    return [...Array(nbOfBlocks).keys()].map((_, index) => {
-      return (
-        <div
-          onMouseEnter={(e) => {
-            colorize(e.target)
-          }}
-          key={index}
-        ></div>
-      )
-    })
-  }
+  // const getBlocks = () => {
+  //   const blockSize = windowsWidth * 0.05
+  //   const nbOfBlocks = Math.ceil(window.innerHeight / blockSize)
+  //   return [...Array(nbOfBlocks).keys()].map((_, index) => {
+  //     return (
+  //       <div
+  //         onMouseEnter={(e) => {
+  //           colorize(e.target)
+  //         }}
+  //         key={index}
+  //       ></div>
+  //     )
+  //   })
+  // }
 
-  const colorize = (el: any) => {
-    el.style.backgroundColor = "white"
-    setTimeout(() => {
-      el.style.backgroundColor = "transparent"
-    }, 300)
-  }
+  // const colorize = (el: any) => {
+  //   el.style.backgroundColor = "white"
+  //   setTimeout(() => {
+  //     el.style.backgroundColor = "transparent"
+  //   }, 300)
+  // }
 
 
 
@@ -78,39 +78,39 @@ export default function Home() {
 
   return (
     <>
-      <div className={`${styles.container} relative       h-[70vh] xl:h-[80vh] `}>
-       <FlickeringGrid
-  className="absolute right-0 top-0 z-0 w-[70%] h-full mix-blend-hard-light mask-[radial-gradient(600px_circle_at_center,white,transparent)]"
-  squareSize={4}
-  gridGap={3}
-  color="#60A5FA"
-  maxOpacity={0.5}
-  flickerChance={0.1}
-/>
+      <div className={`${styles.container} relative h-[70vh] xl:h-[80vh] `}>
+        <FlickeringGrid
+          className="absolute right-0 top-0 z-0 w-[80%] h-full mix-blend-hard-light mask-[radial-gradient(800px_circle_at_center,white,transparent)]"
+          squareSize={4}
+          gridGap={3}
+          color="#60A5FA"
+          maxOpacity={0.5}
+          flickerChance={0.1}
+        />
         <div className={`${styles.body} h-[60vh] xl:h-[70vh]  max-w-7xl px-6 md:px-10  lg:px-10 flex items-center gap-10 `}>
 
-          <div className="lg:max-w-2xl xl:max-w-4xl text-left lg:pt-10">
+          <div className="lg:max-w-4xl xl:max-w-5xl text-left lg:pt-10">
             <p className="text-4xl sm:text-6xl xl:text-8xl font-normal tracking-tight leading-[1.1] mb-4 sm:mb-6 text-transparent bg-clip-text bg-linear-to-b from-white to-gray-500 font-sans ">Pawan Sharma <br />  Creative Developer
             </p>
 
 
 
-            <p className="text-xs  md:text-sm lg:text-sm xl:text-lg font-thin leading-relaxed mt-4 text-gray-200 tracking-wider">
+            <p className="text-sm  md:text-sm lg:text-sm xl:text-lg font-thin leading-relaxed mt-4 text-gray-300 tracking-wider">
               I’m a Full-Stack Developer with 2+ year of experience building modern web
-              applications using React, Next.js, and NestJS. I enjoy creating clean,
+              applications using  <span className="font-semibold">React, Next.js, and NestJS.</span> I enjoy creating clean,
               responsive interfaces and scalable backend systems. I’ve worked on several
               live projects where I collaborated with designers and teams to improve UI/UX
               and deliver high-performance applications. Currently, I’m expanding my
               skills in Full-Stack development with Generative AI while exploring new
               technologies to build smarter and more impactful digital products.
-              <br /> Open to Internships & New Opportunities
+              <br /> <span className="underline "> Open to Internships & New Opportunities</span>
             </p>
 
-            <div className="flex items-center gap-5 mt-6  text-xl md:text-2xl  ">
+            <div className="flex items-center gap-2 mt-6  text-xl md:text-2xl   divide-x divide-gray-200   ">
               <a
                 href="https://linkedin.com"
                 target="_blank"
-                className="hover:text-blue-400 transition"
+                className="hover:text-blue-400 transition p-2"
               >
                 <FaLinkedinIn />
               </a>
@@ -118,7 +118,7 @@ export default function Home() {
               <a
                 href="https://github.com"
                 target="_blank"
-                className="hover:text-gray-300 transition"
+                className="hover:text-gray-300 transition  p-1"
               >
                 <FaGithub />
               </a>
@@ -126,7 +126,7 @@ export default function Home() {
               <a
                 href="https://instagram.com"
                 target="_blank"
-                className="hover:text-pink-400 transition"
+                className="hover:text-pink-400 transition  p-2"
               >
                 <FaInstagram />
               </a>
@@ -134,32 +134,31 @@ export default function Home() {
               <a
                 href="https://youtube.com"
                 target="_blank"
-                className="hover:text-red-500 transition"
+                className="hover:text-red-500 transition  p-1"
               >
                 <FaYoutube />
               </a>
             </div>
           </div>
 
-          {/* RIGHT SIDE IMAGE */}
- <div className="relative hidden z-99999  lg:flex 
-                w-full  lg:w-[35%] xl:w-[30%] 
-                items-center justify-center aspect-square">
+          <div className="relative hidden md:flex 
+                w-full 
+                items-center justify-center lg:h-[50vh] xl:h-[60vh]">
 
-          <div className="relative w-full h-[60vh] xl:h-[70vh]  overflow-hidden ">
-            <Image
-              src="/pawan11.png"
-              alt="Pawan"
-              fill
-              className="object-contain  grayscale rounded-full   "
-            />
+            <div className="relative z-20 w-full h-full overflow-hidden">
+              <Image
+                src="/pawan11.png"
+                alt="Pawan"
+                fill
+                className="object-contain  grayscale"
+              />
+            </div>
+
           </div>
 
         </div>
 
-        </div>
-       
-        <div className={styles.grid}>
+        {/* <div className={styles.grid}>
           {windowsWidth > 0 &&
             [...Array(20).keys()].map((_, index) => {
               return (
@@ -168,21 +167,36 @@ export default function Home() {
                 </div>
               )
             })}
-        </div>
+        </div> */}
       </div>
 
-      <main className=" relative flex h-[10vh]  overflow-hidden  bg-[#191919]">
-
+      <div className=" relative flex min-h-[7vh] text-center items-center justify-center  overflow-hidden border-none bg-[#000000]  ">
+        <FlickeringGrid
+          className="absolute right-0 top-0 z-0 w-[80%] h-full mix-blend-hard-light mask-[radial-gradient(800px_circle_at_center,white,transparent)]"
+          squareSize={4}
+          gridGap={3}
+          color="#60A5FA"
+          maxOpacity={0.5}
+          flickerChance={0.1}
+        />
         <div className="absolute w-full overflow-hidden">
-          <div ref={slider} className="relative whitespace-nowrap">
+          <div ref={slider} className="relative whitespace-nowrap flex gap-10">
             <p
               ref={firstText}
-              className="relative m-0 text-white text-[6vh]  md:text-[4vw] font-bold pr-[50px] tracking-wider "
+              className="relative m-0 tracking-tight leading-[1.1] text-transparent bg-clip-text bg-linear-to-b from-white to-gray-500 font-sans text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold"
             >
-              •  Freelance Developer •  Freelance Frontend Developer  •  Freelance Developer •  Freelance Frontend Developer • Web Designer • UI/UX Enthusiast      </p>
+              • Freelance Developer • Freelance Frontend Developer • Freelance Developer • Freelance Frontend Developer • Web Designer • UI/UX Enthusiast
+            </p>
+
+            <p
+              ref={secondText}
+              className="relative m-0 tracking-tight leading-[1.1] text-transparent bg-clip-text bg-linear-to-b from-white to-gray-500 font-sans text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold"
+            >
+              • Freelance Developer • Freelance Frontend Developer • Freelance Developer • Freelance Frontend Developer • Web Designer • UI/UX Enthusiast
+            </p>
           </div>
         </div>
-      </main>
+      </div>
     </>
   )
 }

@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import HowIWork from "./components/HowIWork";
 export default function Home() {
   return (
-    <div className="flex-col  items-center justify-center  roboto ">
+    <div className="flex-col  items-center justify-center   ">
     <Hero/>
     <section id="work">
   <WorkSection />

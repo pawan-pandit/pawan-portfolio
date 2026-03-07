@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #020202;
+  background-color: #000000;
   
 }
 
@@ -15,8 +15,7 @@
 }
 
 .container .body {
-  
-  width: 70%;
+
   position: relative;
   /* z-index: 1; */
   /* pointer-events: none; */

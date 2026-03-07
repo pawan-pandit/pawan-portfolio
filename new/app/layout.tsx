@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/page";
+import GlobalContact from "./components/ui/global-contact-button";
 
 
 
@@ -22,6 +23,8 @@ export default function RootLayout({
       >
         {/* <Navbar/> */}
         {children}
+                <GlobalContact />
+
       </body>
     </html>
   );

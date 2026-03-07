@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import ProjectCard from "../ui/project-cards"
 
 interface Project {
   id: string
@@ -123,19 +124,17 @@ const WorkSection: React.FC<WorkSectionProps> = ({
   }
 
   return (
-    <div className="bg-[#191919] text-white py-10 md:py-20">
+    <div className="bg-[#000000] text-white py-10 md:py-10 lg:py-10 xl:py-16">
 
-      <div className="text-center mb-10 md:mb-16 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold  tracking-wide mb-4">
-          My Work & Contributions
-        </h1>
-        <p className="text-sm md:text-base lg:text-lg xl:text-xl  text-gray-300 max-w-4xl mx-auto leading-relaxed tracking-wider">
-          A showcase of selected projects that highlight my experience as a creative developer and designer.
-          From crafting clean, performant user interfaces to managing full-stack architecture,
-          I’ve contributed to every stage — from concept and design to deployment and optimization.
-          Each project reflects my focus on detail, usability, and innovation.
-        </p>
-      </div>
+ 
+
+      <ProjectCard   />
+
+      
+
+
+
+
       <div className="hidden md:flex uppercase justify-between px-6 py-4  text-sm lg:text-lg font-semibold tracking-wider text-white/80">
         <p className="flex-1">Project</p>
         <p className="flex-1">Category</p>
